@@ -1,0 +1,17 @@
+.logo1 {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  height: 100%;
+  margin: auto;
+  display: flex;
+  vertical-align: middle;
+  justify-items: center;
+}
+.firstColomn {
+}
+.secondColomn {
+  width: 100%;
+  height: 100%;
+}
