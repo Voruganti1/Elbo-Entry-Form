@@ -1,6 +1,5 @@
 import "./ElboEntryForm.css";
-import logo from "./elboLogo.png";
-import promocontent from "./promocontent.png";
+import logo from "../assets/elboLogo.png";
 import Form from "./Form";
 
 const ElboEntryForm = () => {
@@ -14,9 +13,6 @@ const ElboEntryForm = () => {
           <label htmlFor="login">Log in</label>
         </div>
         <Form />
-      </div>
-      <div className="secondColomn ">
-        <img className="logo1" src={promocontent} alt="Promo content" />
       </div>
     </div>
   );

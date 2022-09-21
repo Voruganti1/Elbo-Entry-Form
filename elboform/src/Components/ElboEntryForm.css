@@ -2,12 +2,6 @@
   max-width: 100%;
   height: auto;
 }
-.secondColomn {
-  margin-right: 0px;
-  flex: 0 0 66.66667%;
-  max-width: 66.66667%;
-  display: block;
-}
 
 .container {
   height: 100%;
@@ -17,10 +11,9 @@
   box-sizing: border-box;
 }
 .firstColomn {
-  margin-left: 80px;
-  margin-top: 100px;
-
-  width: 500px;
+  padding: 0px 50px;
+  background: white;
+  height: 100%;
 }
 .logo {
   width: 30%;

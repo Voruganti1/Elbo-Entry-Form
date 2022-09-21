@@ -1,12 +1,9 @@
 import "./App.css";
-import ElboEntryForm from "./Components/ElboEntryForm";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
-  return (
-    <div>
-      <ElboEntryForm />
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
