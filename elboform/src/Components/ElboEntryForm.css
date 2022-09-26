@@ -10,6 +10,8 @@
   justify-items: center;
 }
 .firstColomn {
+  padding-top: 100px;
+  background: white;
 }
 .secondColomn {
   width: 100%;

@@ -6,7 +6,7 @@
   width: 250px;
   height: 40px;
   border: 2px solid lightgrey;
-  margin-top: 40px;
+  margin-top: 20px;
   border-radius: 20px;
   margin-left: 30px;
 }
@@ -22,20 +22,26 @@
 .inputWithIcons span {
   position: absolute;
   left: 30px;
-  top: 45px;
+  top: 25px;
   padding: 9px 8px;
   color: rgb(128, 125, 125);
 }
 .label {
   position: absolute;
 
-  top: 55px;
+  top: 35px;
   right: 90px;
   color: #ff665e;
   cursor: pointer;
   font-size: 14px;
   letter-spacing: 0.2px;
   font-weight: 700;
+}
+.errors {
+  margin-top: 0px;
+  color: #ff665e;
+  padding-left: 40px;
+  font-size: small;
 }
 
 .inputWithIcons input {
@@ -54,4 +60,22 @@
   text-align: center;
   color: var(--black);
   margin-bottom: 37px;
+}
+.register {
+  font-family: CeraProRegular;
+  font-weight: 400;
+  padding-left: 70px;
+  padding-top: 20px;
+}
+.not {
+  box-sizing: border-box;
+}
+.start {
+  color: #ff665e;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 17px;
+  box-sizing: border-box;
+  border: none;
+  background-color: white;
 }
