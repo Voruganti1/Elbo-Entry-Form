@@ -1,0 +1,57 @@
+.form-entities {
+  width: 400px;
+  height: 300px;
+}
+.form-eliments {
+  width: 250px;
+  height: 40px;
+  border: 2px solid lightgrey;
+  margin-top: 40px;
+  border-radius: 20px;
+  margin-left: 30px;
+}
+.signIn {
+  width: 300px;
+  height: 45px;
+  background-color: #72e5d2;
+  border: 0.7px solid #72e5d2;
+}
+.inputWithIcons {
+  position: relative;
+}
+.inputWithIcons span {
+  position: absolute;
+  left: 30px;
+  top: 45px;
+  padding: 9px 8px;
+  color: rgb(128, 125, 125);
+}
+.label {
+  position: absolute;
+
+  top: 55px;
+  right: 90px;
+  color: #ff665e;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  font-weight: 700;
+}
+
+.inputWithIcons input {
+  padding-left: 40px;
+}
+.login {
+  width: 214px;
+  height: 29px;
+  font-family: CeraStencilProBold;
+  font-size: 23px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: var(--black);
+  margin-bottom: 37px;
+}
