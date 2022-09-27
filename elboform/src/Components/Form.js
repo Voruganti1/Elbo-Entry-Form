@@ -3,6 +3,8 @@ import "./Form.css";
 import { FaRegEnvelope } from "react-icons/fa";
 import { AiFillLock } from "react-icons/ai";
 import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import RegisterClint from "../Components/RegisterClint";
 const initialState = {
   email: "",
   password: "",
@@ -12,7 +14,7 @@ const Form = () => {
   const [errorMessage, setErrorMessage] = useState({});
   const inputHandler = (event) => {
     const { name, value } = event.target;
-    setInput({ ...input, [name]: value });
+    setInput((prevState) => ({ ...prevState, [name]: value }));
   };
 
   const signInHandler = (event) => {
@@ -77,7 +79,14 @@ const Form = () => {
         </div>
         <div className="register">
           <label className="not">Not registered?</label>
-          <button className="start">Get started</button>
+          <Router>
+            <Link to="/register" className="start">
+              Get started
+            </Link>
+            <Routes>
+              <Route path="/register" element={<RegisterClint />} />
+            </Routes>
+          </Router>
         </div>
       </form>
     </div>
