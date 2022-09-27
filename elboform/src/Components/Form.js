@@ -14,10 +14,13 @@ const Form = () => {
     const { name, value } = event.target;
     setInput({ ...input, [name]: value });
   };
-  console.log(input);
+
   const signInHandler = (event) => {
     event.preventDefault();
     setErrorMessage(validateForm(input));
+    input &&
+      window.localStorage.setItem("user-info", JSON.stringify({ input }));
+    //setInput(initialState);
   };
   const validateForm = (values) => {
     const errors = {};
@@ -30,6 +33,9 @@ const Form = () => {
     }
     return errors;
   };
+  //console.log(input);
+  input && console.log(input);
+
   return (
     <div>
       <form className="form-entities">
