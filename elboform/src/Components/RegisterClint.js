@@ -10,26 +10,30 @@ function RegisterClint() {
       <div className="logo">
         <img src={logo} alt="elboLogo" />
       </div>
-      <div>
-        <label>Get started</label>
-      </div>
-      <div>
-        <span>
-          <FaRegEnvelope />
-        </span>
-        <input type="text" value="email" />
-      </div>
-      <div>
-        <input type="text" value="Your name" />
-      </div>
-      <div>
-        <input type="text" value="Company name" />
-      </div>
-      <div>
-        <span>
-          <AiFillLock />
-        </span>
-        <input type="text" value="Password" />
+      <div className="formContainer">
+        <form className="form-entities">
+          <div>
+            <label>Get started</label>
+          </div>
+          <div className="inputWithIcons ">
+            <span>
+              <FaRegEnvelope />
+            </span>
+            <input type="text" value="email" className="form-eliments" />
+          </div>
+          <div>
+            <input type="text" value="Your name" className="form-eliments" />
+          </div>
+          <div>
+            <input type="text" value="Company name" className="form-eliments" />
+          </div>
+          <div className="inputWithIcons ">
+            <span>
+              <AiFillLock />
+            </span>
+            <input type="text" value="Password" className="form-eliments" />
+          </div>
+        </form>
       </div>
     </div>
   );

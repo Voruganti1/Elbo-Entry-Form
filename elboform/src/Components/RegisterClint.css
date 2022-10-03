@@ -5,3 +5,33 @@
 .logo {
   margin-top: 10px;
 }
+.formContainer {
+  margin-top: 120px;
+  display: flex;
+  justify-items: center;
+}
+.form-eliments {
+  width: 250px;
+  height: 40px;
+  border: 2px solid lightgrey;
+  margin-top: 20px;
+  border-radius: 20px;
+  margin-left: 30px;
+}
+.form-entities {
+  width: 400px;
+  height: 300px;
+}
+.inputWithIcons {
+  position: relative;
+}
+.inputWithIcons span {
+  position: absolute;
+  left: 30px;
+  top: 25px;
+  padding: 9px 8px;
+  color: rgb(128, 125, 125);
+}
+.inputWithIcons input {
+  padding-left: 40px;
+}
