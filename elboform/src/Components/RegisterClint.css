@@ -1,4 +1,7 @@
-.register {
-  background: url(/Users/Sudha/Projects/Elbo-Entry-Form/elboform/src/Components/full-signin-bg.2218d4ca.png)
-    no-repeat 0 0;
+.container {
+  display: flex;
+  justify-content: center;
+}
+.logo {
+  margin-top: 10px;
 }

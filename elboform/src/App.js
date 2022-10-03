@@ -1,10 +1,15 @@
 import "./App.css";
-import ElboEntryForm from "./Components/ElboEntryForm";
+import RegisterClint from "./Components/RegisterClint";
 
 function App() {
   return (
-    <div>
-      <ElboEntryForm />
+    <div
+      style={{
+        background: `url(${process.env.PUBLIC_URL} /images/full-signin-bg.2218d4ca.png
+        )`,
+      }}
+    >
+      <RegisterClint />
     </div>
   );
 }

@@ -5,8 +5,10 @@ import { AiFillLock } from "react-icons/ai";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import RegisterClint from "../Components/RegisterClint";
+import axios from "axios";
+
 const initialState = {
-  email: "",
+  emailAddress: "",
   password: "",
 };
 const Form = () => {
@@ -22,17 +24,26 @@ const Form = () => {
     setErrorMessage(validateForm(input));
     input &&
       window.localStorage.setItem("user-info", JSON.stringify({ input }));
+
     //setInput(initialState);
   };
+  async function getToken() {
+    const message = await axios.post(
+      "http://wm-test.elboapps.com/clients/token",
+      input
+    );
+    return message;
+  }
   const validateForm = (values) => {
     const errors = {};
-    console.log(values);
+    //console.log(values);
     if (!values.email) {
-      errors.email = "please enter valid email ID!";
+      errors.emailAddress = "please enter valid email ID!";
     }
     if (!values.password) {
       errors.password = "please enter valid password!";
     }
+    console.log(getToken());
     return errors;
   };
   //console.log(input);
@@ -48,12 +59,12 @@ const Form = () => {
 
           <input
             type="text"
-            name="email"
-            placeholder={input.email}
+            name="emailAddress"
+            placeholder={input.emailAddress}
             className="form-eliments"
             onChange={inputHandler}
           />
-          <p className="errors">{errorMessage.email}</p>
+          <p className="errors">{errorMessage.emailAddress}</p>
         </div>
         <div className="inputWithIcons">
           <span>
@@ -80,7 +91,11 @@ const Form = () => {
         <div className="register">
           <label className="not">Not registered?</label>
           <Router>
-            <Link to="/register" className="start">
+            <Link
+              to="ocalhost:3001/register/register"
+              className="start"
+              target="_blank"
+            >
               Get started
             </Link>
             <Routes>
