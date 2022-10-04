@@ -5,7 +5,7 @@ import { AiFillLock } from "react-icons/ai";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import RegisterClint from "../Components/RegisterClint";
-import axios from "axios";
+import { getToken, validateForm } from "../utils/form-handling";
 
 const initialState = {
   emailAddress: "",
@@ -14,40 +14,22 @@ const initialState = {
 const Form = () => {
   const [input, setInput] = useState(initialState);
   const [errorMessage, setErrorMessage] = useState({});
+
   const inputHandler = (event) => {
     const { name, value } = event.target;
-    setInput((prevState) => ({ ...prevState, [name]: value }));
+    setInput({ ...input, [name]: value });
   };
 
   const signInHandler = (event) => {
     event.preventDefault();
-    setErrorMessage(validateForm(input));
-    input &&
-      window.localStorage.setItem("user-info", JSON.stringify({ input }));
+    const response = getToken(input);
+    setErrorMessage(response);
+    // setErrorMessage(validateForm(input));
+    // input &&
+    //   window.localStorage.setItem("user-info", JSON.stringify({ input }));
+  };
 
-    //setInput(initialState);
-  };
-  async function getToken() {
-    const message = await axios.post(
-      "http://wm-test.elboapps.com/clients/token",
-      input
-    );
-    return message;
-  }
-  const validateForm = (values) => {
-    const errors = {};
-    //console.log(values);
-    if (!values.email) {
-      errors.emailAddress = "please enter valid email ID!";
-    }
-    if (!values.password) {
-      errors.password = "please enter valid password!";
-    }
-    console.log(getToken());
-    return errors;
-  };
-  //console.log(input);
-  input && console.log(input);
+  console.log(input);
 
   return (
     <div>
@@ -60,7 +42,7 @@ const Form = () => {
           <input
             type="text"
             name="emailAddress"
-            placeholder={input.emailAddress}
+            value={input.emailAddress}
             className="form-eliments"
             onChange={inputHandler}
           />
@@ -74,7 +56,7 @@ const Form = () => {
           <input
             type="text"
             name="password"
-            placeholder={input.password}
+            value={input.password}
             className="form-eliments"
             onChange={inputHandler}
           />
@@ -90,18 +72,9 @@ const Form = () => {
         </div>
         <div className="register">
           <label className="not">Not registered?</label>
-          <Router>
-            <Link
-              to="ocalhost:3001/register/register"
-              className="start"
-              target="_blank"
-            >
-              Get started
-            </Link>
-            <Routes>
-              <Route path="/register" element={<RegisterClint />} />
-            </Routes>
-          </Router>
+          <Link to="/register" className="start">
+            Get started
+          </Link>
         </div>
       </form>
     </div>

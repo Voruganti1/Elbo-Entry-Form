@@ -1,16 +1,21 @@
-import "./App.css";
+import ElboEntryForm from "./Components/ElboEntryForm";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import RegisterClint from "./Components/RegisterClint";
 
 function App() {
   return (
-    <div
-      style={{
-        background: `url(${process.env.PUBLIC_URL} /images/full-signin-bg.2218d4ca.png
-        )`,
-      }}
-    >
-      <RegisterClint />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<ElboEntryForm />} />
+        <Route path="/register" element={<RegisterClint />} />
+      </Routes>
+    </Router>
   );
 }
 
