@@ -3,10 +3,10 @@
   justify-content: center;
 }
 .logo {
-  margin-top: 10px;
+  margin-top: 0px;
 }
 .formContainer {
-  margin-top: 120px;
+  margin-top: 8px;
   display: flex;
   justify-items: center;
 }
@@ -22,6 +22,10 @@
   width: 400px;
   height: 300px;
 }
+.getStarted {
+  margin-bottom: 40px;
+  margin-left: 120px;
+}
 .inputWithIcons {
   position: relative;
 }
@@ -34,4 +38,10 @@
 }
 .inputWithIcons input {
   padding-left: 40px;
+}
+.signIn {
+  width: 300px;
+  height: 45px;
+  background-color: #72e5d2;
+  border: 0.7px solid #72e5d2;
 }

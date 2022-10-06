@@ -4,7 +4,7 @@ import { FaRegEnvelope } from "react-icons/fa";
 import { AiFillLock } from "react-icons/ai";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import RegisterClint from "../Components/RegisterClint";
+
 import axios from "axios";
 
 const initialState = {
@@ -28,26 +28,33 @@ const Form = () => {
     //setInput(initialState);
   };
   async function getToken() {
-    const message = await axios.post(
+    const r = await axios.post(
       "http://wm-test.elboapps.com/clients/token",
       input
     );
-    return message;
+    return r;
   }
   const validateForm = (values) => {
     const errors = {};
-    //console.log(values);
-    if (!values.email) {
+    //console.log(values.emailAddress);
+    if (!values.emailAddress) {
       errors.emailAddress = "please enter valid email ID!";
     }
     if (!values.password) {
       errors.password = "please enter valid password!";
     }
-    console.log(getToken());
+
+    const response = getToken();
+    console.log(response);
+    response
+      .then((r) => console.log(r.response.data.Password))
+      .catch((error) => console.log(error.response.data.Password));
+    //console.log(getToken().data);
+    //console.log(getToken().data.EmailAddress);
     return errors;
   };
   //console.log(input);
-  input && console.log(input);
+  //input && console.log(input);
 
   return (
     <div>
@@ -58,7 +65,7 @@ const Form = () => {
           </span>
 
           <input
-            type="text"
+            type="email"
             name="emailAddress"
             placeholder={input.emailAddress}
             className="form-eliments"
@@ -90,20 +97,11 @@ const Form = () => {
         </div>
         <div className="register">
           <label className="not">Not registered?</label>
-          <Router>
-            <Link
-              to="ocalhost:3001/register/register"
-              className="start"
-              target="_blank"
-            >
-              Get started
-            </Link>
-            <Routes>
-              <Route path="/register" element={<RegisterClint />} />
-            </Routes>
-          </Router>
         </div>
       </form>
+      <Link to="/register" className="start">
+        Get started
+      </Link>
     </div>
   );
 };
