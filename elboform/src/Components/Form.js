@@ -4,8 +4,8 @@ import { FaRegEnvelope } from "react-icons/fa";
 import { AiFillLock } from "react-icons/ai";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
 import axios from "axios";
+import postData from "../assets/postData";
 
 const initialState = {
   emailAddress: "",
@@ -21,37 +21,46 @@ const Form = () => {
 
   const signInHandler = (event) => {
     event.preventDefault();
-    setErrorMessage(validateForm(input));
+    validateForm();
     input &&
       window.localStorage.setItem("user-info", JSON.stringify({ input }));
 
     //setInput(initialState);
   };
-  async function getToken() {
-    const r = await axios.post(
-      "http://wm-test.elboapps.com/clients/token",
-      input
-    );
-    return r;
-  }
-  const validateForm = (values) => {
+  // async function getToken() {
+  //   const r = await axios.post(
+  //     "http://wm-test.elboapps.com/clients/token",
+  //     input
+  //   );
+  //   return r;
+  // }
+
+  const validateForm = () => {
     const errors = {};
     //console.log(values.emailAddress);
-    if (!values.emailAddress) {
-      errors.emailAddress = "please enter valid email ID!";
-    }
-    if (!values.password) {
-      errors.password = "please enter valid password!";
-    }
+    // if (!input.emailAddress) {
+    //   errors.emailAddress = "please enter valid email ID!";
+    // }
+    // if (!input.password) {
+    //   errors.password = "please enter valid password!";
+    // }
 
-    const response = getToken();
+    const response = postData("clients/token", {
+      emailAddress: input.emailAddress,
+      password: input.password,
+    });
     console.log(response);
     response
       .then((r) => console.log(r.response.data.Password))
-      .catch((error) => console.log(error.response.data.Password));
+      .catch((error) => {
+        setErrorMessage({
+          emailAddress: error.response.data.EmailAddress,
+          password: error.response.data.Password,
+        });
+      });
+    errorMessage && console.log(errorMessage);
     //console.log(getToken().data);
     //console.log(getToken().data.EmailAddress);
-    return errors;
   };
   //console.log(input);
   //input && console.log(input);
@@ -65,7 +74,7 @@ const Form = () => {
           </span>
 
           <input
-            type="email"
+            type="text"
             name="emailAddress"
             placeholder={input.emailAddress}
             className="form-eliments"
